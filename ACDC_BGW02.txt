@@ -1,0 +1,629 @@
+Keyboard-interactive authentication prompts from server:
+End of keyboard-interactive prompts from server
+    +----------------------------------------------------------------------+
+    ¦                 · MobaXterm Personal Edition v21.1 ·                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ ? SSH session to wx100695@172.26.125.180                             ¦
+    ¦   · Direct SSH      :  ?                                             ¦
+    ¦   · SSH compression :  ?                                             ¦
+    ¦   · SSH-browser     :  ?                                             ¦
+    ¦   · X11-forwarding  :  ?  (remote display is forwarded through SSH)  ¦
+    ¦                                                                      ¦
+    ¦ ? For more info, ctrl+click on help or visit our website.            ¦
+    +----------------------------------------------------------------------+
+
+Last login: Thu Jul 29 09:33:32 2021 from 10.212.134.29
+wx100695@ac1uas01> ssh bunmi@10.10.2.24
+Password:
+Last login: Thu Jul 22 06:17:49 2021 from 172.26.125.180
+--- JUNOS 17.3R3-S7.2 Kernel 64-bit  JNPR-10.3-20191025.14243fa_buil
+JUNOS tip:
+Use 'top <cmd>' to issue a command at the top of the configuration
+hierarchy without moving the current edit point. 'up <n> <cmd>' works also.
+
+1 alarms currently active
+Alarm time               Class  Description
+2021-06-26 12:42:31 GMT  Minor  Backup RE Active
+
+{master}
+bunmi@ACDC_BGW02> show configuration | display set | no-more
+set version 17.3R3-S7.2
+set groups re0 interfaces fxp0 unit 0 family inet address 10.10.2.24/25
+set groups re1 interfaces fxp0 unit 0 family inet address 10.10.2.13/25
+set apply-groups re0
+set apply-groups re1
+set system host-name ACDC_BGW02
+set system time-zone Africa/Accra
+set system root-authentication encrypted-password /* SECRET-DATA */
+set system name-server 4.4.4.4
+set system name-server 8.8.8.8
+set system login retry-options tries-before-disconnect 3
+set system login retry-options backoff-threshold 1
+set system login retry-options backoff-factor 5
+set system login retry-options lockout-period 120
+set system login class Ericsson idle-timeout 10
+set system login class Ericsson permissions all
+set system login class FRONT-OFFICE login-alarms
+set system login class FRONT-OFFICE login-tip
+set system login class FRONT-OFFICE permissions clear
+set system login class FRONT-OFFICE permissions network
+set system login class FRONT-OFFICE permissions trace
+set system login class FRONT-OFFICE permissions view
+set system login class FRONT-OFFICE permissions view-configuration
+set system login class Tigo idle-timeout 10
+set system login class Tigo permissions all
+set system login class tigoclass permissions view
+set system login class tigoclass permissions view-configuration
+set system login user Ajayi uid 2450
+set system login user Ajayi class super-user
+set system login user Ajayi authentication encrypted-password /* SECRET-DATA */
+set system login user Olayinka uid 2499
+set system login user Olayinka class super-user
+set system login user Olayinka authentication encrypted-password /* SECRET-DATA */
+set system login user Talitha uid 2005
+set system login user Talitha class Ericsson
+set system login user Talitha authentication encrypted-password /* SECRET-DATA */
+set system login user admin uid 2002
+set system login user admin class Tigo
+set system login user admin authentication encrypted-password /* SECRET-DATA */
+set system login user bolaji uid 2461
+set system login user bolaji class FRONT-OFFICE
+set system login user bolaji authentication encrypted-password /* SECRET-DATA */
+set system login user bunmi uid 2000
+set system login user bunmi class FRONT-OFFICE
+set system login user bunmi authentication encrypted-password /* SECRET-DATA */
+set system login user ealgupt uid 2007
+set system login user ealgupt class Ericsson
+set system login user ealgupt authentication encrypted-password /* SECRET-DATA */
+set system login user eemmapr uid 2004
+set system login user eemmapr class super-user
+set system login user eemmapr authentication encrypted-password /* SECRET-DATA */
+set system login user joshua uid 2460
+set system login user joshua class FRONT-OFFICE
+set system login user joshua authentication encrypted-password /* SECRET-DATA */
+set system login user mensah uid 2003
+set system login user mensah class super-user
+set system login user mensah authentication encrypted-password /* SECRET-DATA */
+set system login user okosun uid 2462
+set system login user okosun class FRONT-OFFICE
+set system login user okosun authentication encrypted-password /* SECRET-DATA */
+set system login user reuben uid 2463
+set system login user reuben class FRONT-OFFICE
+set system login user reuben authentication encrypted-password /* SECRET-DATA */
+set system login user samuel uid 2008
+set system login user samuel class FRONT-OFFICE
+set system login user samuel authentication encrypted-password /* SECRET-DATA */
+set system login user scudjoe-seshie full-name stephen
+set system login user scudjoe-seshie uid 2016
+set system login user scudjoe-seshie class operator
+set system login user scudjoe-seshie authentication encrypted-password /* SECRET-DATA */
+set system login user tloukwa uid 2430
+set system login user tloukwa class operator
+set system login user tloukwa authentication encrypted-password /* SECRET-DATA */
+set system login user yongicho uid 2001
+set system login user yongicho class FRONT-OFFICE
+set system login user yongicho authentication encrypted-password /* SECRET-DATA */
+set system services ftp
+set system services ssh
+set system services telnet
+set system syslog user * any emergency
+set system syslog host 10.9.1.238 any any
+set system syslog host 10.80.2.2 any any
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system archival configuration transfer-on-commit
+set system archival configuration archive-sites "scp://EricssonBkUp:3R!c550N8kUp@10.81.10.13/MPBN_NETWORK"
+set system commit synchronize
+set system ntp server 10.76.110.12
+set system ntp server 10.17.0.132 prefer
+set chassis redundancy routing-engine 0 backup
+set chassis redundancy routing-engine 1 master
+set chassis redundancy failover on-loss-of-keepalives
+set chassis redundancy failover on-disk-failure
+set chassis redundancy graceful-switchover
+set chassis aggregated-devices ethernet device-count 8
+set chassis network-services enhanced-ip
+set interfaces xe-1/0/0 description ACDCSS02_6:4
+set interfaces xe-1/0/0 gigether-options 802.3ad ae5
+set interfaces xe-1/0/1 description ACDCSS02_6:6
+set interfaces xe-1/0/1 gigether-options 802.3ad ae5
+set interfaces xe-1/0/2 description GLO_10Gb_Backup
+set interfaces xe-1/0/2 unit 0 family inet address 41.203.94.2/30
+set interfaces xe-1/0/4 description INter_bgw
+set interfaces xe-1/0/4 vlan-tagging
+set interfaces xe-1/0/4 unit 424 vlan-id 424
+set interfaces xe-1/0/4 unit 424 family inet address 41.215.166.130/30
+set interfaces xe-1/0/4 unit 424 family iso
+set interfaces xe-1/0/5 description Inter_POP_Tema
+set interfaces xe-1/0/5 mtu 4470
+set interfaces xe-1/0/5 unit 0 description Inter_POP_Tema
+set interfaces xe-1/0/5 unit 0 family inet address 192.168.200.5/30
+set interfaces xe-1/0/5 unit 0 family iso
+set interfaces xe-1/0/6 description to_ALU_R2_2/1/2
+set interfaces xe-1/0/6 mtu 4470
+set interfaces xe-1/0/6 unit 0 family inet address 41.190.90.11/31
+set interfaces xe-1/0/7 description to_ACE
+set interfaces xe-1/0/7 mtu 4470
+set interfaces xe-1/0/7 unit 0 family inet address 41.242.112.149/31
+set interfaces xe-1/0/8 description To_IT
+set interfaces xe-1/0/8 vlan-tagging
+set interfaces xe-1/0/8 unit 0 vlan-id 451
+set interfaces xe-1/0/8 unit 0 family inet address 41.215.168.14/28 vrrp-group 7 virtual-address 41.215.168.12
+set interfaces xe-1/0/8 unit 0 family inet address 41.215.168.14/28 vrrp-group 7 priority 100
+set interfaces xe-1/0/8 unit 0 family inet address 41.215.168.14/28 vrrp-group 7 accept-data
+set interfaces xe-1/0/9 description to_GIX_Cache
+set interfaces xe-1/0/9 vlan-tagging
+set interfaces ae5 description To_ACDCSS02
+set interfaces ae5 vlan-tagging
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options link-speed 10g
+set interfaces ae5 aggregated-ether-options lacp active
+set interfaces ae5 unit 0 vlan-id 521
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 1 virtual-address 41.215.166.27
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 1 priority 150
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 1 accept-data
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 2 virtual-address 41.215.166.28
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 2 priority 101
+set interfaces ae5 unit 0 family inet address 41.215.166.26/29 vrrp-group 2 accept-data
+set interfaces ae5 unit 1 vlan-id 413
+set interfaces ae5 unit 1 family inet address 172.16.40.19/28 vrrp-group 3 virtual-address 172.16.40.17
+set interfaces ae5 unit 1 family inet address 172.16.40.19/28 vrrp-group 3 priority 100
+set interfaces ae5 unit 1 family inet address 172.16.40.19/28 vrrp-group 3 preempt
+set interfaces ae5 unit 1 family inet address 172.16.40.19/28 vrrp-group 3 accept-data
+set interfaces ae5 unit 53 disable
+set interfaces ae5 unit 53 description "*****Airtel-2 towards  Gh-accr-BR-R2****** "
+set interfaces ae5 unit 53 vlan-id 53
+set interfaces ae5 unit 53 family inet
+set interfaces ae5 unit 120 description "towards ACDC GiGp Firewall"
+set interfaces ae5 unit 120 vlan-id 120
+set interfaces ae5 unit 120 family inet address 10.100.204.130/29 vrrp-group 5 virtual-address 10.100.204.131
+set interfaces ae5 unit 120 family inet address 10.100.204.130/29 vrrp-group 5 priority 100
+set interfaces ae5 unit 120 family inet address 10.100.204.130/29 vrrp-group 5 preempt
+set interfaces ae5 unit 120 family inet address 10.100.204.130/29 vrrp-group 5 accept-data
+set interfaces ae5 unit 191 description "towards GIX_GGC"
+set interfaces ae5 unit 191 vlan-id 191
+set interfaces ae5 unit 191 family inet address 196.201.2.28/25
+set interfaces ae5 unit 229 description Noction_Server
+set interfaces ae5 unit 229 vlan-id 229
+set interfaces ae5 unit 229 family inet filter input Noction_Vendor_Allow
+set interfaces ae5 unit 229 family inet address 41.215.160.154/29 vrrp-group 8 virtual-address 41.215.160.155
+set interfaces ae5 unit 229 family inet address 41.215.160.154/29 vrrp-group 8 priority 100
+set interfaces ae5 unit 229 family inet address 41.215.160.154/29 vrrp-group 8 accept-data
+set interfaces ae5 unit 417 description "towards ACDC GiGp Firewall_CP-vr"
+set interfaces ae5 unit 417 vlan-id 417
+set interfaces ae5 unit 417 family inet address 41.215.166.219/29 vrrp-group 6 virtual-address 41.215.166.217
+set interfaces ae5 unit 417 family inet address 41.215.166.219/29 vrrp-group 6 priority 100
+set interfaces ae5 unit 417 family inet address 41.215.166.219/29 vrrp-group 6 preempt
+set interfaces ae5 unit 417 family inet address 41.215.166.219/29 vrrp-group 6 accept-data
+set interfaces ae5 unit 1001 description Ex-4200
+set interfaces ae5 unit 1001 vlan-id 1001
+set interfaces ae5 unit 1001 family inet filter input block_snmp
+deactivate interfaces ae5 unit 1001 family inet filter input
+set interfaces ae5 unit 1001 family inet filter output block_snmp
+set interfaces ae5 unit 1001 family inet address 41.215.166.157/30
+set interfaces ae5 unit 1104 description sip_ext_Gi
+set interfaces ae5 unit 1104 vlan-id 1104
+set interfaces ae5 unit 1104 family inet address 10.250.12.27/29 vrrp-group 240 virtual-address 10.250.12.28
+set interfaces ae5 unit 1104 family inet address 10.250.12.27/29 vrrp-group 240 priority 100
+set interfaces ae5 unit 1104 family inet address 10.250.12.27/29 vrrp-group 240 preempt
+set interfaces ae5 unit 1104 family inet address 10.250.12.27/29 vrrp-group 240 accept-data
+set interfaces ae5 unit 1380 description Sawtel_Internet
+set interfaces ae5 unit 1380 vlan-id 1380
+set interfaces ae5 unit 1380 family inet address 41.215.162.195/29 vrrp-group 4 virtual-address 41.215.162.193
+set interfaces ae5 unit 1380 family inet address 41.215.162.195/29 vrrp-group 4 priority 100
+set interfaces ae5 unit 1380 family inet address 41.215.162.195/29 vrrp-group 4 accept-data
+set interfaces lo0 unit 0 family inet filter input sshFilter
+set interfaces lo0 unit 0 family inet address 192.168.254.12/32
+set interfaces lo0 unit 0 family inet address 41.215.166.15/32
+set interfaces lo0 unit 0 family iso address 49.0002.0192.0168.0002.00
+set snmp community public authorization read-only
+set snmp community public clients 41.215.164.3/32
+set snmp community public clients 41.215.164.60/32
+set snmp community public clients 10.9.1.238/32
+set snmp community public clients 10.80.2.2/32
+set snmp community public clients 10.80.2.5/32
+set snmp community public clients 10.10.2.25/32
+set snmp community "@p0pMgmt1x2x" authorization read-only
+set snmp community "@p0pMgmt1x2x" clients 41.215.161.0/24
+set snmp community "@p0pMgmt1x2x" clients 41.215.162.0/24
+set snmp community "@p0pMgmt1x2x" clients 41.215.163.0/24
+set snmp community "@p0pMgmt1x2x" clients 41.215.167.0/24
+set routing-options interface-routes rib-group inet fbf-group
+set routing-options static route 10.1.7.0/24 next-hop 10.10.2.1
+set routing-options static route 41.215.162.160/27 next-hop 41.215.162.196
+set routing-options static route 10.80.2.2/32 next-hop 10.10.2.1
+set routing-options static route 41.215.169.0/24 next-hop 172.16.40.20
+set routing-options static route 41.215.173.0/24 next-hop 172.16.40.20
+set routing-options static route 41.215.162.56/30 next-hop 10.100.204.132
+set routing-options static route 41.215.162.16/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.68/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.72/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.0/30 next-hop 10.100.204.132
+set routing-options static route 41.215.162.60/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.76/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.80/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.84/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.88/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.92/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.112/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.116/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.224/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.192/27 next-hop 10.100.204.132
+set routing-options static route 41.215.162.40/29 next-hop 10.100.204.132
+set routing-options static route 41.215.167.5/32 next-hop 172.16.40.20
+set routing-options static route 41.215.167.6/32 next-hop 172.16.40.20
+set routing-options static route 41.215.167.7/32 next-hop 172.16.40.20
+set routing-options static route 41.215.167.8/32 next-hop 172.16.40.20
+set routing-options static route 41.215.166.12/32 next-hop 172.16.40.20
+set routing-options static route 41.215.166.208/32 next-hop 41.215.166.220
+set routing-options static route 41.215.166.210/32 next-hop 41.215.166.220
+set routing-options static route 41.215.175.60/30 next-hop 10.100.204.132
+set routing-options static route 41.215.175.64/30 next-hop 10.100.204.132
+set routing-options static route 41.215.168.32/30 next-hop 10.100.204.132
+set routing-options static route 41.215.168.16/30 next-hop 10.100.204.132
+set routing-options static route 41.215.168.20/30 next-hop 10.100.204.132
+set routing-options static route 41.215.168.36/30 next-hop 10.100.204.132
+set routing-options static route 66.37.100.0/24 next-hop 41.215.162.196
+set routing-options static route 41.215.168.48/29 next-hop 10.100.204.132
+set routing-options static route 41.215.168.44/30 next-hop 10.100.204.132
+set routing-options static route 41.215.168.24/29 next-hop 10.100.204.132
+set routing-options static route 41.215.168.56/29 next-hop 10.100.204.132
+set routing-options static route 41.215.166.14/32 next-hop 196.201.2.121
+set routing-options static route 41.215.165.64/30 next-hop 10.100.204.132
+set routing-options static route 41.215.162.64/29 next-hop 10.100.204.132
+set routing-options static route 41.215.165.72/32 next-hop 172.16.40.20
+set routing-options static route 41.215.168.88/29 next-hop 10.100.204.132
+set routing-options static route 41.215.171.0/24 next-hop 192.168.200.6
+set routing-options static route 41.215.171.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.172.0/24 next-hop 192.168.200.6
+set routing-options static route 41.215.172.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.174.0/24 next-hop 192.168.200.6
+set routing-options static route 41.215.174.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.170.0/24 next-hop 192.168.200.6
+set routing-options static route 41.215.170.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.165.224/27 next-hop 172.16.40.20
+set routing-options static route 41.215.160.141/32 next-hop 172.16.40.20
+set routing-options static route 41.215.160.142/32 next-hop 172.16.40.20
+set routing-options static route 10.0.220.17/32 next-hop 10.10.2.1
+set routing-options static route 10.9.1.238/32 next-hop 10.10.2.1
+set routing-options static route 10.0.220.31/32 next-hop 10.10.2.1
+set routing-options static route 10.250.46.0/24 next-hop 10.10.2.1
+set routing-options static route 10.100.80.7/32 next-hop 10.10.2.1
+set routing-options static route 10.0.224.10/32 next-hop 10.10.2.1
+set routing-options static route 10.1.7.138/32 next-hop 10.10.2.1
+set routing-options static route 10.1.7.194/32 next-hop 10.10.2.1
+set routing-options static route 10.17.0.132/32 next-hop 10.10.2.1
+set routing-options static route 10.1.7.137/32 next-hop 10.10.2.1
+set routing-options static route 41.215.160.143/32 next-hop 172.16.40.20
+set routing-options static route 172.26.125.180/32 next-hop 10.10.2.1
+set routing-options static route 41.215.168.0/28 next-hop 41.215.168.1
+set routing-options static route 41.215.168.128/25 next-hop 41.215.168.1
+set routing-options static route 41.215.160.145/32 next-hop 172.16.40.20
+set routing-options static route 10.81.10.13/32 next-hop 10.10.2.1
+set routing-options static route 41.215.166.227/32 next-hop 192.168.200.6
+set routing-options static route 41.215.163.0/24 next-hop 192.168.200.6
+set routing-options static route 41.215.163.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.173.160/28 next-hop 10.100.204.132
+set routing-options aggregate defaults discard
+set routing-options aggregate route 41.215.164.0/24
+set routing-options aggregate route 41.215.160.0/24
+set routing-options aggregate route 41.215.165.0/24
+set routing-options aggregate route 41.215.166.0/24
+set routing-options aggregate route 41.215.167.0/24
+set routing-options aggregate route 41.215.168.0/24
+set routing-options aggregate route 41.215.161.0/24
+set routing-options aggregate route 41.215.162.0/24
+set routing-options aggregate route 41.215.163.0/24
+set routing-options aggregate route 41.215.172.0/24
+set routing-options aggregate route 41.215.160.0/20
+set routing-options aggregate route 41.215.170.0/23
+set routing-options aggregate route 196.175.248.0/22
+set routing-options aggregate route 41.215.168.0/21
+set routing-options aggregate route 41.215.160.0/21
+set routing-options rib-groups fbf-group import-rib inet.0
+set routing-options rib-groups fbf-group import-rib pbr-traffic.inet.0
+set routing-options router-id 192.168.254.12
+set routing-options autonomous-system 37030
+set protocols bgp group ibgp type internal
+set protocols bgp group ibgp local-address 192.168.254.12
+set protocols bgp group ibgp export next-hop-self
+set protocols bgp group ibgp neighbor 192.168.254.11
+set protocols bgp group ibgp neighbor 192.168.254.2
+set protocols bgp group Airtel-2 type external
+set protocols bgp group Airtel-2 import Airtel_In
+set protocols bgp group Airtel-2 export Airtel_Out
+set protocols bgp group Airtel-2 peer-as 37140
+set protocols bgp group Airtel-2 neighbor 41.190.90.10
+set protocols bgp group gixedge type external
+set protocols bgp group gixedge local-address 196.201.2.28
+set protocols bgp group gixedge import receivegix
+set protocols bgp group gixedge family inet unicast prefix-limit maximum 2000
+set protocols bgp group gixedge family inet unicast prefix-limit teardown 90
+set protocols bgp group gixedge family inet unicast prefix-limit teardown idle-timeout 30
+set protocols bgp group gixedge export announcegix
+set protocols bgp group gixedge peer-as 30997
+set protocols bgp group gixedge neighbor 196.201.2.1
+set protocols bgp group gixedge neighbor 196.201.2.2
+set protocols bgp group Google_miniPoP type external
+set protocols bgp group Google_miniPoP multihop ttl 5
+set protocols bgp group Google_miniPoP local-address 41.215.166.15
+set protocols bgp group Google_miniPoP authentication-key /* SECRET-DATA */
+set protocols bgp group Google_miniPoP export announceminipop
+set protocols bgp group Google_miniPoP peer-as 36040
+set protocols bgp group Google_miniPoP neighbor 41.215.166.14
+set protocols bgp group inter-pop type internal
+set protocols bgp group inter-pop local-address 192.168.254.12
+set protocols bgp group inter-pop import inter-pop-in
+set protocols bgp group inter-pop export inter-pop-out
+set protocols bgp group inter-pop neighbor 192.168.254.1
+set protocols bgp group bgp-GLO-10 type external
+set protocols bgp group bgp-GLO-10 import GLO-UPLINK
+set protocols bgp group bgp-GLO-10 export announceglo2
+set protocols bgp group bgp-GLO-10 peer-as 37148
+set protocols bgp group bgp-GLO-10 neighbor 41.203.94.1
+set protocols bgp group bgp-ace type external
+set protocols bgp group bgp-ace log-updown
+set protocols bgp group bgp-ace export announceace
+set protocols bgp group bgp-ace peer-as 37613
+set protocols bgp group bgp-ace neighbor 41.242.112.148
+set protocols isis interface xe-1/0/4.424 level 1 disable
+set protocols isis interface xe-1/0/5.0 level 1 disable
+set protocols isis interface lo0.0 passive
+set protocols ospf export exportospf
+set protocols ospf area 0.0.0.0 interface lo0.0
+set protocols ospf area 0.0.0.0 interface ae5.1001
+set protocols ospf area 0.0.0.0 interface xe-1/0/4.424
+set policy-options prefix-list MGMT-ADDRESSES 10.0.220.0/24
+set policy-options prefix-list NTP-ADDRESSES 10.17.0.132/32
+set policy-options prefix-list Trusted_login 10.0.0.0/8
+set policy-options prefix-list Trusted_login 41.215.160.0/20
+set policy-options prefix-list Trusted_login 172.26.125.180/32
+set policy-options prefix-list Trusted_login 192.168.254.0/24
+set policy-options prefix-list Noction_Vendor_Prefix 34.250.229.11/32
+set policy-options prefix-list Noction_Vendor_Prefix 34.255.169.34/32
+set policy-options prefix-list Noction_Vendor_Prefix 41.215.160.152/29
+set policy-options prefix-list Noction_Vendor_Prefix 41.215.164.0/24
+set policy-options prefix-list Noction_Vendor_Prefix 41.215.168.0/24
+set policy-options prefix-list Noction_Vendor_Prefix 52.51.203.11/32
+set policy-options prefix-list Noction_Vendor_Prefix 185.34.202.0/23
+set policy-options prefix-list Advert_ACE 41.190.88.0/22
+set policy-options prefix-list Advert_ACE 41.190.88.0/24
+set policy-options prefix-list Advert_ACE 41.190.89.0/24
+set policy-options prefix-list Advert_ACE 41.190.90.0/24
+set policy-options prefix-list Advert_ACE 41.190.91.0/24
+set policy-options prefix-list Advert_ACE 45.208.0.0/16
+set policy-options prefix-list Advert_ACE 45.209.0.0/16
+set policy-options prefix-list Advert_ACE 196.174.0.0/17
+set policy-options prefix-list Advert_ACE 196.174.128.0/17
+set policy-options prefix-list Advert_ACE 196.175.0.0/24
+set policy-options prefix-list Advert_ACE 196.175.224.0/23
+set policy-options prefix-list Advert_ACE 196.175.240.0/22
+set policy-options prefix-list Advert_ACE 196.175.248.0/23
+set policy-options prefix-list Advert_ACE 196.175.250.0/23
+set policy-options prefix-list Advert_ACE 197.190.0.0/16
+set policy-options prefix-list Advert_ACE 197.191.0.0/16
+set policy-options policy-statement Airtel_In term 0 from prefix-list Advert_ACE
+set policy-options policy-statement Airtel_In term 0 then community set ALU_COMM
+set policy-options policy-statement Airtel_In term 0 then accept
+set policy-options policy-statement Airtel_In term 1 from route-filter 41.190.88.0/22 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 45.209.0.0/16 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 45.210.0.0/15 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.172.0.0/15 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.174.0.0/17 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.174.128.0/17 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.224.0/23 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.226.0/23 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.248.0/23 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.250.0/23 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.252.0/24 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 197.190.0.0/16 exact
+set policy-options policy-statement Airtel_In term 1 from route-filter 196.175.224.0/24 exact
+set policy-options policy-statement Airtel_In term 1 then accept
+set policy-options policy-statement Airtel_In term 2 then reject
+set policy-options policy-statement Airtel_Out term Default from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement Airtel_Out term Default then community add no-export
+set policy-options policy-statement Airtel_Out term Default then accept
+set policy-options policy-statement Airtel_Out term 1 from route-filter 41.215.164.0/24 exact
+set policy-options policy-statement Airtel_Out term 1 from route-filter 41.215.160.0/24 exact
+set policy-options policy-statement Airtel_Out term 1 from route-filter 196.175.0.0/24 exact
+deactivate policy-options policy-statement Airtel_Out term 1 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement Airtel_Out term 1 from route-filter 41.215.160.0/20 exact
+set policy-options policy-statement Airtel_Out term 1 then accept
+set policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.166.0/24 exact
+deactivate policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.170.0/24 exact
+set policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.161.0/24 exact
+deactivate policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.171.0/24 exact
+set policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.167.0/24 exact
+set policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.175.0/24 exact
+set policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.162.0/24 exact
+deactivate policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.163.0/24 exact
+deactivate policy-options policy-statement Airtel_Out term 2 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement Airtel_Out term 2 then as-path-prepend "37030 37030 37030"
+deactivate policy-options policy-statement Airtel_Out term 2 then as-path-prepend
+set policy-options policy-statement Airtel_Out term 2 then accept
+set policy-options policy-statement Airtel_Out term 3 from route-filter 41.215.169.0/24 exact
+set policy-options policy-statement Airtel_Out term 3 from route-filter 41.215.173.0/24 exact
+set policy-options policy-statement Airtel_Out term 3 from route-filter 41.215.172.0/24 exact
+set policy-options policy-statement Airtel_Out term 3 then as-path-prepend "37030 37030 37030 37030 37030 37030"
+set policy-options policy-statement Airtel_Out term 3 then accept
+deactivate policy-options policy-statement Airtel_Out term 3
+set policy-options policy-statement Airtel_Out term 10 then reject
+set policy-options policy-statement GLO-UPLINK term 1 from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement GLO-UPLINK term 1 then local-preference 50
+set policy-options policy-statement GLO-UPLINK term 1 then accept
+set policy-options policy-statement GLO-UPLINK term 2 then reject
+set policy-options policy-statement announceace term 1 from community ALU_COMM
+set policy-options policy-statement announceace term 1 then accept
+set policy-options policy-statement announceace term 2 from route-filter 41.215.162.0/24 exact
+set policy-options policy-statement announceace term 2 from route-filter 41.215.160.0/20 exact
+set policy-options policy-statement announceace term 2 from route-filter 196.175.250.0/23 exact
+set policy-options policy-statement announceace term 2 from route-filter 41.215.165.0/24 exact
+set policy-options policy-statement announceace term 2 from route-filter 41.215.166.0/24 exact
+set policy-options policy-statement announceace term 2 then accept
+set policy-options policy-statement announceace term 2b from route-filter 196.175.0.0/24 exact
+set policy-options policy-statement announceace term 2b then accept
+set policy-options policy-statement announceace term 3 then reject
+set policy-options policy-statement announcegix term reject_default from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement announcegix term reject_default then reject
+set policy-options policy-statement announcegix term 0 from protocol bgp
+set policy-options policy-statement announcegix term 0 from community no-export
+set policy-options policy-statement announcegix term 0 from community GIX_COMM
+set policy-options policy-statement announcegix term 0 then reject
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.163.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.170.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.169.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.164.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.168.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.171.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.172.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.173.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.161.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.162.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.160.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.165.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 196.175.240.0/22 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 196.175.248.0/23 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 196.175.250.0/23 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 41.190.88.0/22 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 45.209.0.0/16 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 45.208.0.0/16 orlonger
+set policy-options policy-statement announcegix term 1 from route-filter 197.221.88.0/21 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement announcegix term 1 from route-filter 41.215.167.0/24 exact
+set policy-options policy-statement announcegix term 1 then accept
+set policy-options policy-statement announcegix term 3 then reject
+set policy-options policy-statement announceglo term 1 from route-filter 206.251.48.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 206.251.56.0/21 orlonger
+set policy-options policy-statement announceglo term 1 from route-filter 154.65.16.0/23 orlonger
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.165.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.167.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.168.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.169.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.171.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.163.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement announceglo term 1 from route-filter 41.215.172.0/24 exact
+set policy-options policy-statement announceglo term 1 then accept
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.160.0/20 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.162.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.175.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 196.175.248.0/23 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.166.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.161.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.164.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 41.215.170.0/24 exact
+set policy-options policy-statement announceglo term 3 from route-filter 66.37.100.0/24 exact
+set policy-options policy-statement announceglo term 3 then as-path-prepend "37030 37030 37030 37030 37030"
+set policy-options policy-statement announceglo term 3 then accept
+set policy-options policy-statement announceglo term 2 from route-filter 41.215.173.0/24 exact
+set policy-options policy-statement announceglo term 2 then as-path-prepend "37030 37030 37030"
+set policy-options policy-statement announceglo term 2 then accept
+set policy-options policy-statement announceglo term 4 then reject
+set policy-options policy-statement announceglo2 term TEMP_BLOCK_TRAFFIC then reject
+set policy-options policy-statement announceglo2 term 1 from route-filter 41.215.160.0/21 exact
+set policy-options policy-statement announceglo2 term 1 from route-filter 41.215.168.0/21 exact
+set policy-options policy-statement announceglo2 term 1 from route-filter 41.215.173.0/24 exact
+set policy-options policy-statement announceglo2 term 1 from route-filter 41.215.169.0/24 exact
+set policy-options policy-statement announceglo2 term 1 then accept
+set policy-options policy-statement announceglo2 term 5 then reject
+set policy-options policy-statement announceminipop term 1 from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.160.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.161.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.162.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.163.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.164.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.165.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.166.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.167.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.168.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.169.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.170.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.171.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.172.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.173.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.215.175.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.190.88.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.190.88.0/22 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.190.89.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.190.90.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 41.190.91.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 45.208.0.0/14 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.172.0.0/15 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.174.0.0/17 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.174.128.0/17 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.0.0/18 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.64.0/18 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.224.0/23 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.226.0/23 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.248.0/23 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.250.0/23 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 196.175.252.0/24 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 197.190.0.0/15 exact
+set policy-options policy-statement announceminipop term 1 from route-filter 97.190.0.0/15 exact
+set policy-options policy-statement announceminipop term 1 then accept
+set policy-options policy-statement announceminipop term 2 then reject
+set policy-options policy-statement exportospf term 1 from protocol static
+set policy-options policy-statement exportospf term 1 from protocol direct
+set policy-options policy-statement exportospf term 1 then accept
+set policy-options policy-statement exportospf term 3 then reject
+set policy-options policy-statement inter-pop-in term 1 then reject
+set policy-options policy-statement inter-pop-out term 1 from route-filter 104.237.164.0/24 exact
+set policy-options policy-statement inter-pop-out term 1 from route-filter 104.237.191.0/24 exact
+set policy-options policy-statement inter-pop-out term 1 then next-hop self
+set policy-options policy-statement inter-pop-out term 1 then accept
+set policy-options policy-statement inter-pop-out term 2 then reject
+set policy-options policy-statement next-hop-self then next-hop self
+set policy-options policy-statement receivegix term 10 from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement receivegix term 10 then reject
+set policy-options policy-statement receivegix term 20 from protocol bgp
+set policy-options policy-statement receivegix term 20 from as-path ATIGO_AS_1
+set policy-options policy-statement receivegix term 20 from as-path ATIGO_AS_2
+set policy-options policy-statement receivegix term 20 then reject
+set policy-options policy-statement receivegix term 30 then community set GIX_COMM
+set policy-options policy-statement receivegix term 30 then community add no-export
+set policy-options policy-statement receivegix term 30 then accept
+set policy-options community ALU_COMM members target:37140:3000
+set policy-options community GIX_COMM members target:37030:38989
+set policy-options community no-export members no-export
+set policy-options as-path ATIGO_AS_1 .37030.
+set policy-options as-path ATIGO_AS_2 .37140.
+set firewall family inet filter sshFilter term allow_SSH from source-prefix-list Trusted_login
+set firewall family inet filter sshFilter term allow_SSH from protocol tcp
+set firewall family inet filter sshFilter term allow_SSH from protocol udp
+set firewall family inet filter sshFilter term allow_SSH from destination-port ssh
+set firewall family inet filter sshFilter term allow_SSH from destination-port ntp
+set firewall family inet filter sshFilter term allow_SSH from destination-port snmp
+set firewall family inet filter sshFilter term allow_SSH then accept
+set firewall family inet filter sshFilter term reject_unknown_ssh from source-address 0.0.0.0/0
+set firewall family inet filter sshFilter term reject_unknown_ssh from protocol udp
+set firewall family inet filter sshFilter term reject_unknown_ssh from protocol tcp
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port ssh
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port ntp
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port snmp
+set firewall family inet filter sshFilter term reject_unknown_ssh then discard
+set firewall family inet filter sshFilter term allow then accept
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.161.24/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.161.31/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.166.10/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.161.25/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.165.97/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.161.71/32
+set firewall family inet filter block_snmp term 1 from destination-address 41.215.166.225/32
+set firewall family inet filter block_snmp term 1 from protocol udp
+set firewall family inet filter block_snmp term 1 from destination-port snmp
+set firewall family inet filter block_snmp term 1 then count snmp_traffic
+set firewall family inet filter block_snmp term 1 then discard
+set firewall family inet filter block_snmp term default then accept
+set firewall policer SSH-POLICER if-exceeding bandwidth-limit 10m
+set firewall policer SSH-POLICER if-exceeding burst-size-limit 100k
+set firewall policer SSH-POLICER then discard
+set firewall filter Noction_Vendor_Allow term Allow_Noction from prefix-list Noction_Vendor_Prefix
+set firewall filter Noction_Vendor_Allow term Allow_Noction then count Noction_Packets
+set firewall filter Noction_Vendor_Allow term Allow_Noction then accept
+
+{master}
+bunmi@ACDC_BGW02>

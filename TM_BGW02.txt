@@ -1,0 +1,392 @@
+Keyboard-interactive authentication prompts from server:
+End of keyboard-interactive prompts from server
+    +----------------------------------------------------------------------+
+    ¦                 · MobaXterm Personal Edition v21.1 ·                 ¦
+    ¦               (SSH client, X server and network tools)               ¦
+    ¦                                                                      ¦
+    ¦ ? SSH session to wx100695@172.26.125.180                             ¦
+    ¦   · Direct SSH      :  ?                                             ¦
+    ¦   · SSH compression :  ?                                             ¦
+    ¦   · SSH-browser     :  ?                                             ¦
+    ¦   · X11-forwarding  :  ?  (remote display is forwarded through SSH)  ¦
+    ¦                                                                      ¦
+    ¦ ? For more info, ctrl+click on help or visit our website.            ¦
+    +----------------------------------------------------------------------+
+
+Last login: Thu Jul 29 09:39:11 2021 from 10.212.134.29
+wx100695@ac1uas01> ssh bunmi@10.10.5.13
+Password:
+Last login: Wed Jul 28 11:21:59 2021 from 172.26.125.180
+--- JUNOS 17.3R3-S7.2 Kernel 64-bit  JNPR-10.3-20191025.14243fa_buil
+JUNOS tip:
+Use the 'request system logout' command to forcibly log a user out of
+the router.
+
+1 alarms currently active
+Alarm time               Class  Description
+2021-06-13 17:19:38 GMT  Major  Host 1 fxp0 : Ethernet Link Down
+
+{master}
+bunmi@TM_BGW02> show configuration | display set | no-more
+set version 17.3R3-S7.2
+set groups re0 interfaces fxp0 unit 0 family inet address 10.10.5.13/24
+set groups re1 interfaces fxp0 unit 0 family inet address 10.10.5.23/24
+set apply-groups re0
+set apply-groups re1
+set system host-name TM_BGW02
+set system time-zone Africa/Accra
+set system root-authentication encrypted-password /* SECRET-DATA */
+set system login retry-options tries-before-disconnect 3
+set system login retry-options backoff-threshold 1
+set system login retry-options backoff-factor 5
+set system login retry-options lockout-period 120
+set system login class Ericsson idle-timeout 10
+set system login class Ericsson permissions all
+set system login class FRONT-OFFICE login-alarms
+set system login class FRONT-OFFICE login-tip
+set system login class FRONT-OFFICE permissions clear
+set system login class FRONT-OFFICE permissions network
+set system login class FRONT-OFFICE permissions trace
+set system login class FRONT-OFFICE permissions view
+set system login class FRONT-OFFICE permissions view-configuration
+set system login class TIGO_READONLY idle-timeout 20
+set system login class TIGO_READONLY permissions firewall
+set system login class TIGO_READONLY permissions interface
+set system login class TIGO_READONLY permissions maintenance
+set system login class TIGO_READONLY permissions network
+set system login class TIGO_READONLY permissions routing
+set system login class TIGO_READONLY permissions security
+set system login class TIGO_READONLY permissions snmp
+set system login class TIGO_READONLY permissions system
+set system login class TIGO_READONLY permissions trace
+set system login class TIGO_READONLY permissions view
+set system login class TIGO_READONLY permissions view-configuration
+set system login class Tigo idle-timeout 10
+set system login class Tigo permissions all
+set system login user Ajayi uid 2450
+set system login user Ajayi class super-user
+set system login user Ajayi authentication encrypted-password /* SECRET-DATA */
+set system login user Olayinka uid 2451
+set system login user Olayinka class super-user
+set system login user Olayinka authentication encrypted-password /* SECRET-DATA */
+set system login user admin uid 2001
+set system login user admin class Tigo
+set system login user admin authentication encrypted-password /* SECRET-DATA */
+set system login user bolaji uid 2461
+set system login user bolaji class FRONT-OFFICE
+set system login user bolaji authentication encrypted-password /* SECRET-DATA */
+set system login user bunmi uid 2009
+set system login user bunmi class FRONT-OFFICE
+set system login user bunmi authentication encrypted-password /* SECRET-DATA */
+set system login user eemmapr uid 2008
+set system login user eemmapr class super-user
+set system login user eemmapr authentication encrypted-password /* SECRET-DATA */
+set system login user joshua uid 2460
+set system login user joshua class FRONT-OFFICE
+set system login user joshua authentication encrypted-password /* SECRET-DATA */
+set system login user mensah uid 2017
+set system login user mensah class super-user
+set system login user mensah authentication encrypted-password /* SECRET-DATA */
+set system login user okosun uid 2462
+set system login user okosun class FRONT-OFFICE
+set system login user okosun authentication encrypted-password /* SECRET-DATA */
+set system login user reuben uid 2463
+set system login user reuben class FRONT-OFFICE
+set system login user reuben authentication encrypted-password /* SECRET-DATA */
+set system login user samuel uid 2016
+set system login user samuel class FRONT-OFFICE
+set system login user samuel authentication encrypted-password /* SECRET-DATA */
+set system login user scudjoe-seshie full-name stephen
+set system login user scudjoe-seshie uid 2004
+set system login user scudjoe-seshie class operator
+set system login user scudjoe-seshie authentication encrypted-password /* SECRET-DATA */
+set system login user support uid 2021
+set system login user support class super-user
+set system login user support authentication encrypted-password /* SECRET-DATA */
+set system login user tloukwa uid 2430
+set system login user tloukwa class operator
+set system login user tloukwa authentication encrypted-password /* SECRET-DATA */
+set system services ftp
+set system services ssh
+set system syslog user * any emergency
+set system syslog host 10.9.1.238 any any
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set system archival configuration transfer-on-commit
+set system archival configuration archive-sites "ftp://EricssonBkUp:3R!c550N8kUp@10.81.10.13:921/MPBN_NETWORK/Juniper"
+set system commit synchronize
+set system ntp server 10.17.0.132 prefer
+set chassis redundancy routing-engine 0 master
+set chassis redundancy routing-engine 1 backup
+set chassis redundancy graceful-switchover
+set chassis aggregated-devices ethernet device-count 8
+set chassis network-services enhanced-ip
+set services rpm probe MainOne_5STM test icmp-test probe-type icmp-ping
+set services rpm probe MainOne_5STM test icmp-test target address 41.75.88.77
+set services rpm probe MainOne_5STM test icmp-test probe-interval 15
+set services rpm probe MainOne_5STM test icmp-test thresholds
+set services rpm probe MainOne_5STM test icmp-test hardware-timestamp
+set interfaces xe-1/0/0 description TMSS02_5:6
+set interfaces xe-1/0/0 gigether-options 802.3ad ae5
+set interfaces xe-1/0/1 description TMSS02_6:6
+set interfaces xe-1/0/1 gigether-options 802.3ad ae5
+set interfaces xe-1/0/3 gigether-options 802.3ad ae2
+set interfaces xe-1/0/4 description Inter_BGW
+set interfaces xe-1/0/4 unit 0 family inet address 41.215.166.134/30
+set interfaces xe-1/0/4 unit 0 family iso
+set interfaces xe-1/0/5 description Inter_POP_Tema
+set interfaces xe-1/0/5 mtu 4470
+set interfaces xe-1/0/5 unit 0 description Inter_POP_Tema
+set interfaces xe-1/0/5 unit 0 family inet address 192.168.200.6/30
+set interfaces xe-1/0/5 unit 0 family iso
+set interfaces xe-1/0/6 description to_ALU_R2
+set interfaces xe-1/0/6 mtu 4470
+set interfaces xe-1/0/6 unit 0 description tema_noc_r2_3/1/1
+set interfaces xe-1/0/6 unit 0 family inet address 41.215.166.230/31
+set interfaces ae2 description MAINONE_2
+set interfaces ae2 vlan-tagging
+set interfaces ae2 aggregated-ether-options minimum-links 1
+set interfaces ae2 unit 3208 vlan-id 3208
+set interfaces ae2 unit 3208 family inet address 45.222.212.70/30
+set interfaces ae5 description Towards_SRX
+set interfaces ae5 vlan-tagging
+set interfaces ae5 aggregated-ether-options minimum-links 1
+set interfaces ae5 aggregated-ether-options link-speed 10g
+set interfaces ae5 aggregated-ether-options lacp active
+set interfaces ae5 unit 0 vlan-id 413
+set interfaces ae5 unit 0 family inet address 172.16.50.22/28 vrrp-group 1 virtual-address 172.16.50.23
+set interfaces ae5 unit 0 family inet address 172.16.50.22/28 vrrp-group 1 priority 100
+set interfaces ae5 unit 0 family inet address 172.16.50.22/28 vrrp-group 1 accept-data
+set interfaces ae5 unit 8 description "towards ACDC GiGp Firewall"
+set interfaces ae5 unit 8 vlan-id 8
+set interfaces ae5 unit 8 family inet address 10.10.6.58/29 vrrp-group 5 virtual-address 10.10.6.59
+set interfaces ae5 unit 8 family inet address 10.10.6.58/29 vrrp-group 5 priority 50
+set interfaces ae5 unit 8 family inet address 10.10.6.58/29 vrrp-group 5 preempt
+set interfaces ae5 unit 8 family inet address 10.10.6.58/29 vrrp-group 5 accept-data
+set interfaces lo0 unit 0 family inet filter input sshFilter
+set interfaces lo0 unit 0 family inet address 192.168.254.2/32
+set interfaces lo0 unit 0 family iso address 49.0002.0192.0168.0004.00
+set snmp community public authorization read-only
+set snmp community public clients 41.215.164.3/32
+set snmp community public clients 41.215.164.60/32
+set snmp community public clients 10.9.1.238/32
+set snmp community public clients 10.80.2.2/32
+set snmp community public clients 10.80.2.5/32
+set snmp community "@p0pMgmt1x2x" authorization read-only
+set forwarding-options sampling input rate 100
+set forwarding-options sampling family inet output flow-server 10.80.2.2 port 2055
+set forwarding-options sampling family inet output flow-server 10.80.2.2 version 5
+set routing-options static route 10.100.160.0/24 next-hop 10.20.1.3
+set routing-options static route 10.100.80.0/24 next-hop 10.20.1.3
+set routing-options static route 10.9.1.238/32 next-hop 10.20.1.3
+set routing-options static route 41.215.172.0/24 next-hop 172.16.50.20
+set routing-options static route 41.215.171.0/24 next-hop 172.16.50.20
+set routing-options static route 41.215.168.0/24 next-hop 192.168.250.1
+set routing-options static route 41.215.168.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.168.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.167.0/24 next-hop 192.168.250.1
+set routing-options static route 41.215.167.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.167.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.165.0/24 next-hop 192.168.250.1
+set routing-options static route 41.215.165.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.165.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 10.1.7.138/32 next-hop 10.10.5.1
+set routing-options static route 10.80.2.0/28 next-hop 10.10.5.1
+set routing-options static route 10.1.7.194/32 next-hop 10.10.5.1
+set routing-options static route 41.75.80.102/32 next-hop 41.75.88.77
+set routing-options static route 41.215.174.56/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.32/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.36/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.40/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.44/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.48/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.52/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.60/30 next-hop 10.10.6.60
+set routing-options static route 41.215.174.64/30 next-hop 10.10.6.60
+set routing-options static route 10.17.0.132/32 next-hop 10.10.5.1
+set routing-options static route 41.215.174.84/30 next-hop 10.10.6.60
+set routing-options static route 10.1.7.137/32 next-hop 10.10.5.1
+set routing-options static route 172.26.125.180/32 next-hop 10.10.5.1
+set routing-options static route 45.210.0.0/15 next-hop 172.16.50.20
+set routing-options static route 196.172.0.0/15 next-hop 172.16.50.20
+set routing-options static route 196.174.0.0/17 next-hop 172.16.50.20
+set routing-options static route 41.215.169.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.169.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.173.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.173.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.160.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.160.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.162.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.162.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.164.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.164.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.174.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.174.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.161.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.161.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.166.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.166.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.170.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.170.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.175.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.175.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 192.168.254.12/32 next-hop 192.168.200.5
+set routing-options static route 192.168.254.12/32 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.166.250/32 next-hop 192.168.200.5
+set routing-options static route 41.215.166.250/32 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.166.225/32 next-hop 172.16.50.20
+set routing-options static route 41.215.166.226/32 next-hop 172.16.50.20
+set routing-options static route 66.37.100.0/24 next-hop 192.168.200.5
+set routing-options static route 66.37.100.0/24 bfd-liveness-detection minimum-interval 300
+set routing-options static route 41.215.166.227/32 next-hop 172.16.50.20
+set routing-options static route 10.10.2.25/32 next-hop 10.10.5.1
+set routing-options static route 41.215.173.0/27 next-hop 192.168.200.5
+set routing-options static route 41.215.173.0/27 bfd-liveness-detection minimum-interval 300
+set routing-options static route 10.81.10.13/32 next-hop 10.10.5.3
+set routing-options static route 41.215.174.253/32 next-hop 172.16.50.20
+set routing-options static route 196.175.0.0/24 next-hop 192.168.200.5
+set routing-options static route 41.215.163.0/24 next-hop 172.16.50.20
+set routing-options static route 41.215.163.32/28 next-hop 10.10.6.60
+set routing-options aggregate route 41.215.172.0/24
+set routing-options aggregate route 41.215.171.0/24
+set routing-options aggregate route 41.215.168.0/21
+set routing-options aggregate route 41.215.160.0/21
+set routing-options router-id 192.168.254.2
+set routing-options autonomous-system 37030
+set protocols bgp group ibgp type internal
+set protocols bgp group ibgp local-address 192.168.254.2
+set protocols bgp group ibgp export next-hop-self
+set protocols bgp group ibgp neighbor 192.168.254.1
+set protocols bgp group InterPOPbgp type internal
+set protocols bgp group InterPOPbgp local-address 192.168.254.2
+set protocols bgp group InterPOPbgp import preference-80
+set protocols bgp group InterPOPbgp export next-hop-self
+set protocols bgp group InterPOPbgp neighbor 192.168.254.12
+set protocols bgp group InterPOPbgp neighbor 192.168.254.11
+set protocols bgp group Airtel-2 type external
+set protocols bgp group Airtel-2 peer-as 37140
+set protocols bgp group Airtel-2 neighbor 41.215.166.231 import Airtel_In
+set protocols bgp group Airtel-2 neighbor 41.215.166.231 export GGC_Export
+set protocols bgp group bgp-MainOne1.86G-37282 type external
+set protocols bgp group bgp-MainOne1.86G-37282 import MAINONE-UPLINK_2
+set protocols bgp group bgp-MainOne1.86G-37282 export announcebgp_2
+set protocols bgp group bgp-MainOne1.86G-37282 peer-as 37282
+set protocols bgp group bgp-MainOne1.86G-37282 neighbor 45.222.212.69
+set protocols isis interface xe-1/0/4.0 level 1 disable
+set protocols isis interface xe-1/0/5.0 level 1 disable
+set protocols isis interface lo0.0 passive
+set protocols ospf export exportospf
+set protocols ospf area 0.0.0.0 interface lo0.0
+set protocols ospf area 0.0.0.0 interface ae3.0
+set protocols ospf area 0.0.0.0 interface xe-1/0/4.0
+set policy-options prefix-list MGMT-ADDRESSES 10.0.220.0/24
+set policy-options prefix-list NTP-ADDRESSES 10.17.0.132/32
+set policy-options prefix-list Trusted_login 10.0.0.0/8
+set policy-options prefix-list Trusted_login 41.215.160.0/24
+set policy-options prefix-list Trusted_login 41.215.166.133/32
+set policy-options prefix-list Trusted_login 172.26.125.180/32
+set policy-options prefix-list Trusted_login 192.168.254.0/24
+set policy-options prefix-list portblock 41.215.162.101/32
+set policy-options prefix-list portblock 41.215.162.105/32
+set policy-options prefix-list portblock 41.215.162.113/32
+set policy-options prefix-list portblock 41.215.162.137/32
+set policy-options prefix-list portblock 41.215.162.145/32
+set policy-options prefix-list portblock 41.215.165.41/32
+set policy-options prefix-list portblock 41.215.165.65/32
+set policy-options prefix-list portblock 41.215.165.97/32
+set policy-options prefix-list portblock 41.215.166.41/32
+set policy-options prefix-list AirtelTigo_Mobile 1.0.1.1/32
+set policy-options prefix-list AirtelTigo_Mobile 41.215.160.0/21
+set policy-options prefix-list AirtelTigo_Mobile 41.215.168.0/21
+set policy-options prefix-list AirtelTigo_Mobile 41.215.171.0/24
+set policy-options prefix-list AirtelTigo_Mobile 41.215.173.0/24
+set policy-options prefix-list Advert_MainOne 41.190.88.0/22
+set policy-options prefix-list Advert_MainOne 41.190.88.0/24
+set policy-options prefix-list Advert_MainOne 41.190.89.0/24
+set policy-options prefix-list Advert_MainOne 41.190.90.0/24
+set policy-options prefix-list Advert_MainOne 41.190.91.0/24
+set policy-options prefix-list Advert_MainOne 45.208.0.0/16
+set policy-options prefix-list Advert_MainOne 45.209.0.0/16
+set policy-options prefix-list Advert_MainOne 196.174.0.0/17
+set policy-options prefix-list Advert_MainOne 196.174.128.0/17
+set policy-options prefix-list Advert_MainOne 196.175.64.0/18
+set policy-options prefix-list Advert_MainOne 196.175.128.0/19
+set policy-options prefix-list Advert_MainOne 196.175.224.0/23
+set policy-options prefix-list Advert_MainOne 196.175.224.0/24
+set policy-options prefix-list Advert_MainOne 196.175.240.0/22
+set policy-options prefix-list Advert_MainOne 196.175.243.0/24
+set policy-options prefix-list Advert_MainOne 196.175.248.0/23
+set policy-options prefix-list Advert_MainOne 196.175.250.0/23
+set policy-options prefix-list Advert_MainOne 197.190.0.0/16
+set policy-options prefix-list Advert_MainOne 197.191.0.0/16
+set policy-options policy-statement Airtel_In term 1 from prefix-list Advert_MainOne
+set policy-options policy-statement Airtel_In term 1 then community set ALU_COMM_2
+set policy-options policy-statement Airtel_In term 1 then accept
+set policy-options policy-statement Airtel_In term 2 then reject
+set policy-options policy-statement GGC_Export term 10 from prefix-list AirtelTigo_Mobile
+set policy-options policy-statement GGC_Export term 10 then accept
+set policy-options policy-statement GGC_Export term 20 then reject
+set policy-options policy-statement MAINONE-UPLINK_2 term 1 from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement MAINONE-UPLINK_2 term 1 then preference 90
+set policy-options policy-statement MAINONE-UPLINK_2 term 1 then local-preference 90
+set policy-options policy-statement MAINONE-UPLINK_2 term 1 then accept
+set policy-options policy-statement MAINONE-UPLINK_2 term 2 then reject
+set policy-options policy-statement announcebgp_2 term 0 from community ALU_COMM_2
+set policy-options policy-statement announcebgp_2 term 0 then accept
+set policy-options policy-statement announcebgp_2 term 1 from route-filter 41.215.174.0/24 exact
+set policy-options policy-statement announcebgp_2 term 1 from route-filter 41.215.175.0/24 exact
+set policy-options policy-statement announcebgp_2 term 1 then accept
+set policy-options policy-statement announcebgp_2 term 5 then reject
+set policy-options policy-statement exportospf term 1 from protocol direct
+set policy-options policy-statement exportospf term 1 from protocol static
+set policy-options policy-statement exportospf term 1 then accept
+set policy-options policy-statement exportospf term 2 then reject
+set policy-options policy-statement mainonetwo term 2 from route-filter 41.215.163.0/24 exact
+set policy-options policy-statement next-hop-self then next-hop self
+set policy-options policy-statement preference-80 term 1 from protocol bgp
+set policy-options policy-statement preference-80 term 1 from route-filter 0.0.0.0/0 exact
+set policy-options policy-statement preference-80 term 1 then local-preference 120
+set policy-options policy-statement preference-80 term 1 then accept
+set policy-options community ALU_COMM_2 members target:37140:3001
+set firewall family inet filter protect-re term ALLOW-SSH from source-prefix-list MGMT-ADDRESSES
+set firewall family inet filter protect-re term ALLOW-SSH from protocol tcp
+set firewall family inet filter protect-re term ALLOW-SSH from destination-port ssh
+set firewall family inet filter protect-re term ALLOW-SSH then policer SSH-POLICER
+set firewall family inet filter protect-re term ALLOW-SSH then accept
+set firewall family inet filter sshFilter term allow_SSH from source-prefix-list Trusted_login
+set firewall family inet filter sshFilter term allow_SSH from protocol tcp
+set firewall family inet filter sshFilter term allow_SSH from protocol udp
+set firewall family inet filter sshFilter term allow_SSH from destination-port ssh
+set firewall family inet filter sshFilter term allow_SSH from destination-port ntp
+set firewall family inet filter sshFilter term allow_SSH from destination-port snmp
+set firewall family inet filter sshFilter term allow_SSH then accept
+set firewall family inet filter sshFilter term reject_unknown_ssh from source-address 0.0.0.0/0
+set firewall family inet filter sshFilter term reject_unknown_ssh from protocol udp
+set firewall family inet filter sshFilter term reject_unknown_ssh from protocol tcp
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port ssh
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port ntp
+set firewall family inet filter sshFilter term reject_unknown_ssh from destination-port snmp
+set firewall family inet filter sshFilter term reject_unknown_ssh then discard
+set firewall family inet filter sshFilter term allow then accept
+set firewall family inet filter portblock term 1 from source-address 0.0.0.0/0
+set firewall family inet filter portblock term 1 from destination-prefix-list portblock
+set firewall family inet filter portblock term 1 from protocol tcp
+set firewall family inet filter portblock term 1 from protocol udp
+set firewall family inet filter portblock term 1 from destination-port 22
+set firewall family inet filter portblock term 1 from destination-port 23
+set firewall family inet filter portblock term 1 from destination-port 80
+set firewall family inet filter portblock term 1 from destination-port 161
+set firewall family inet filter portblock term 1 from destination-port 445
+set firewall family inet filter portblock term 1 from destination-port 8008
+set firewall family inet filter portblock term 1 then reject
+set firewall family inet filter portblock term 2 then accept
+set firewall policer SSH-POLICER if-exceeding bandwidth-limit 10m
+set firewall policer SSH-POLICER if-exceeding burst-size-limit 100k
+set firewall policer SSH-POLICER then discard
+
+{master}
+bunmi@TM_BGW02> exit
+
+Connection to 10.10.5.13 closed.
+wx100695@ac1uas01>
